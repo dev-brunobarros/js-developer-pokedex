@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link rel="icon" type="image/png" href="/assets/img/favicon-pokedex.png"/>
 
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -24,7 +25,10 @@
 
 <body>
     <section class="content">
-        <h1>Pokedex</h1>
+        <div id="intro-container">
+            <h1>Pokedex</h1>
+            <img class="pokeball" src="/assets/img/pokeball.png" alt="pokeball">
+        </div>
 
         <ol id="pokemonList" class="pokemons">
             <!-- ..... Pokemons here ..... -->
@@ -37,10 +41,55 @@
         </div>
     </section>
 
+    <dialog id="modal">
+        <div id="modal-content">
+            <div id="modal-header">
+                <button id="back-btn" onclick="closeModal()">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                    </svg>
+                  </button>
+            </div>
+            <div id="modal-body">
+                <div id="modal-intro">
+                    <div id="pokemon-infos">
+                        <div>
+                            <span id="pokemon-name"></span>
+                            <div id="types-detail">
+                                <ol id="types"></ol>
+                            </div>
+                        </div>
+                        <div>
+                            <span id="pokemon-number"></span>
+                        </div>
+                    </div>
+                    <div id="pokemon-img-container">
+                        <img id="pokemon-image" src="">
+                    </div>
+                </div>
+                <div id="modal-details">
+                    <div id="detail-tabs">
+                        <span id="about-tab" class="tab" onclick="showTab('about-tab-content')">About</span>
+                        <span id="baseStats-tab" class="tab" onclick="showTab('baseStats-tab-content')">Base Stats</span>
+                        <span id="evolution-tab" class="tab" onclick="showTab('evolution-tab-content')">Evolution</span>
+                        <span id="moves-tab" class="tab" onclick="showTab('moves-tab-content')">Moves</span>
+                    </div>
+                    <div id="detail-tab-content">
+                        <div id="about-tab-content" class="div-content"></div>
+                        <div id="baseStats-tab-content" class="div-content"></div>
+                        <div id="evolution-tab-content" class="div-content"></div>
+                        <div id="moves-tab-content" class="div-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
     <!-- Nosso JS -->
     <script src="/assets/js/pokemon-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/modal.js"></script>
 </body>
 
 </html>
